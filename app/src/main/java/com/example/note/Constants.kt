@@ -1,7 +1,5 @@
 package com.example.note
 
-
-
 import com.example.note.model.Note
 
 object Constants {

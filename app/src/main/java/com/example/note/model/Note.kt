@@ -1,6 +1,5 @@
 package com.example.note.model
 
-
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Index
@@ -19,7 +18,7 @@ data class Note (
 )
 
 fun getDateCreated(): String {
-    return LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+    return LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss") )
 }
 
 fun Note.getDay(): String{

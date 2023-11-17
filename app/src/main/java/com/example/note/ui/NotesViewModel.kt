@@ -1,4 +1,4 @@
-package com.example.note
+package com.example.note.ui
 
 import androidx.lifecycle.*
 import com.example.note.model.Note
