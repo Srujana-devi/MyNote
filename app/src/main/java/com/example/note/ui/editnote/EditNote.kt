@@ -1,4 +1,4 @@
-package com.example.note.ui.EditNote
+package com.example.note.ui.editnote
 
 import android.annotation.SuppressLint
 import android.net.Uri
@@ -20,17 +20,19 @@ import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import com.example.note.Constants
-import com.example.note.PhotoNotesApp
+import com.example.note.NotesApp
 import com.example.note.R
 import com.example.note.model.Note
 import com.example.note.ui.GenericAppBar
 import com.example.note.ui.NoteList.NotesFab
 import com.example.note.ui.NotesViewModel
-import com.example.note.ui.theme.PhotoNotesTheme
+import com.example.note.ui.theme.NotesAppTheme
+import com.google.firebase.annotations.PreviewApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
+@PreviewApi
 @Composable
 fun NoteEditScreen(noteId: Int, navController: NavController, viewModel: NotesViewModel) {
     val scope = rememberCoroutineScope()
@@ -48,7 +50,7 @@ fun NoteEditScreen(noteId: Int, navController: NavController, viewModel: NotesVi
     ) { uri ->
 
         if (uri != null) {
-            PhotoNotesApp.getUriPermission(uri)
+            NotesApp.getUriPermission(uri)
         }
         currentPhotos.value = uri.toString()
         if (currentPhotos.value != note.value.imageUri) {
@@ -67,7 +69,7 @@ fun NoteEditScreen(noteId: Int, navController: NavController, viewModel: NotesVi
 
 
 
-    PhotoNotesTheme {
+    NotesAppTheme {
         // A surface container using the 'background' color from the theme
         Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.primary) {
             Scaffold(

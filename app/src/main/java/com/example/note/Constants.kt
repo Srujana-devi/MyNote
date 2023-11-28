@@ -19,7 +19,7 @@ object Constants {
         fun placeHolderList(): List<Note> {
             return listOf(Note(id = 0, title = "No Notes Found", note = "Please create a note.", dateUpdated = ""))
         }
-        return if (this != null && this.isNotEmpty()){
+        return if (!this.isNullOrEmpty()){
             this
         } else placeHolderList()
     }

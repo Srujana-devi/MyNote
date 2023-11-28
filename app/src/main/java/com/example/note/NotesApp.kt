@@ -1,16 +1,16 @@
 package com.example.note
 
 import android.app.Application
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.room.Room
 import com.example.note.persistence.NotesDao
 import com.example.note.persistence.NotesDatabase
+//Application Class, which will run as soon as app is created
+//and will be used to get instance of context to create our room data base
+class NotesApp : Application(){
 
-class PhotoNotesApp : Application(){
-
-    private var db : NotesDatabase? = null
+    private var database : NotesDatabase? = null
 
 
     init {
@@ -18,22 +18,23 @@ class PhotoNotesApp : Application(){
     }
 
     private fun getDb(): NotesDatabase {
-        return if (db != null){
-            db!!
+        return if (database != null){
+            database!!
         } else {
-            db = Room.databaseBuilder(
+            database = Room.databaseBuilder(
                 instance!!.applicationContext,
                 NotesDatabase::class.java, Constants.DATABASE_NAME
             ).fallbackToDestructiveMigration()// remove in prod
                 .build()
-            db!!
+            database!!
         }
     }
 
 
     companion object {
-        private var instance: PhotoNotesApp? = null
+        private var instance: NotesApp? = null
 
+        //for updating, deleting and retrieving notes
         fun getDao(): NotesDao {
             return instance!!.getDb().NotesDao()
         }

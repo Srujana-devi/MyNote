@@ -8,12 +8,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.note.ui.EditNote.NoteEditScreen
-import com.example.note.ui.NoteDetail.NoteDetailScreen
+import com.example.note.ui.editnote.NoteEditScreen
+import com.example.note.ui.notedetail.NoteDetailScreen
 import com.example.note.ui.NoteList.NotesList
 import com.example.note.ui.NotesViewModel
 import com.example.note.ui.NotesViewModelFactory
-import com.example.note.ui.NoteCreate.CreateNoteScreen
+import com.example.note.ui.createnote.CreateNoteScreen
 
 class MainActivity : ComponentActivity() {
 
@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         // retrieve viewModel
-        notesViewModel =  NotesViewModelFactory(PhotoNotesApp.getDao()).create(NotesViewModel::class.java)
+        notesViewModel =  NotesViewModelFactory(NotesApp.getDao()).create(NotesViewModel::class.java)
 
 
         setContent {

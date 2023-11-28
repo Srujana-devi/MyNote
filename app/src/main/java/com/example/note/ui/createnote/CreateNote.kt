@@ -1,4 +1,4 @@
-package com.example.note.ui.NoteCreate
+package com.example.note.ui.createnote
 
 import android.annotation.SuppressLint
 import android.net.Uri
@@ -21,14 +21,15 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
-import com.example.note.PhotoNotesApp
+import com.example.note.NotesApp
 import com.example.note.R
 import com.example.note.ui.GenericAppBar
 import com.example.note.ui.NoteList.NotesFab
 import com.example.note.ui.NotesViewModel
-import com.example.note.ui.theme.PhotoNotesTheme
+import com.example.note.ui.theme.NotesAppTheme
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
+
 @Composable
 fun CreateNoteScreen(
     navController: NavController,
@@ -46,7 +47,7 @@ fun CreateNoteScreen(
         contract = ActivityResultContracts.OpenDocument()
     ) {
         if (it != null) {
-            PhotoNotesApp.getUriPermission(it)
+            NotesApp.getUriPermission(it)
         }
         currentPhotos.value = it.toString()
     }
@@ -54,7 +55,7 @@ fun CreateNoteScreen(
 
 
 
-    PhotoNotesTheme {
+    NotesAppTheme {
         // A surface container using the 'background' color from the theme
         Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.primary) {
             Scaffold(
@@ -65,7 +66,7 @@ fun CreateNoteScreen(
                             Icon(
                                 imageVector = ImageVector.vectorResource(R.drawable.save),
                                 contentDescription = stringResource(R.string.save_note),
-                                tint = Color.Black,
+                                tint = Color.Green,
                             )
                         },
                         onIconClick = {
@@ -88,65 +89,63 @@ fun CreateNoteScreen(
                         },
                         icon = R.drawable.camera
                     )
-                },
-
-                content = {
-                    Column(
-                        Modifier
-                            .padding(12.dp)
-                            .fillMaxSize()
-                    ) {
-                        if (currentPhotos.value.isNotEmpty()) {
-                            Image(
-                                painter = rememberAsyncImagePainter(
-                                    ImageRequest
-                                        .Builder(LocalContext.current)
-                                        .data(data = Uri.parse(currentPhotos.value))
-                                        .build()
-                                ),
-                                contentDescription = null,
-                                modifier = Modifier
-                                    .fillMaxHeight(0.3f)
-                                    .padding(6.dp),
-                                contentScale = ContentScale.Crop
-                            )
-                        }
-
-                        TextField(
-                            value = currentTitle.value,
-                            modifier = Modifier.fillMaxWidth(),
-                            colors = TextFieldDefaults.textFieldColors(
-                                cursorColor = Color.Black,
-                                focusedLabelColor = Color.Black,
-                            ),
-                            onValueChange = { value ->
-                                currentTitle.value = value
-                                saveButtonState.value =
-                                    currentTitle.value != "" && currentNote.value != ""
-                            },
-                            label = { Text(text = "Title") }
-                        )
-                        Spacer(modifier = Modifier.padding(12.dp))
-                        TextField(
-                            value = currentNote.value,
-                            colors = TextFieldDefaults.textFieldColors(
-                                cursorColor = Color.Black,
-                                focusedLabelColor = Color.Black,
-                            ),
-                            modifier = Modifier
-                                .fillMaxHeight(0.5f)
-                                .fillMaxWidth(),
-                            onValueChange = { value ->
-                                currentNote.value = value
-                                saveButtonState.value =
-                                    currentTitle.value != "" && currentNote.value != ""
-                            },
-                            label = { Text(text = "Body") }
-                        )
-                    }
                 }
 
-            )
+            ) {
+                Column(
+                    Modifier
+                        .padding(12.dp)
+                        .fillMaxSize()
+                ) {
+                    if (currentPhotos.value.isNotEmpty()) {
+                        Image(
+                            painter = rememberAsyncImagePainter(
+                                ImageRequest
+                                    .Builder(LocalContext.current)
+                                    .data(data = Uri.parse(currentPhotos.value))
+                                    .build()
+                            ),
+                            contentDescription = null,
+                            modifier = Modifier
+                                .fillMaxHeight(0.3f)
+                                .padding(6.dp),
+                            contentScale = ContentScale.Crop
+                        )
+                    }
+
+                    TextField(
+                        value = currentTitle.value,
+                        modifier = Modifier.fillMaxWidth(),
+                        colors = TextFieldDefaults.textFieldColors(
+                            cursorColor = Color.DarkGray,
+                            focusedLabelColor = Color.Black,
+                        ),
+                        onValueChange = { value ->
+                            currentTitle.value = value
+                            saveButtonState.value =
+                                currentTitle.value != "" && currentNote.value != ""
+                        },
+                        label = { Text(text = "Title") }
+                    )
+                    Spacer(modifier = Modifier.padding(12.dp))
+                    TextField(
+                        value = currentNote.value,
+                        colors = TextFieldDefaults.textFieldColors(
+                            cursorColor = Color.DarkGray,
+                            focusedLabelColor = Color.Black,
+                        ),
+                        modifier = Modifier
+                            .fillMaxHeight(0.5f)
+                            .fillMaxWidth(),
+                        onValueChange = { value ->
+                            currentNote.value = value
+                            saveButtonState.value =
+                                currentTitle.value != "" && currentNote.value != ""
+                        },
+                        label = { Text(text = "Body") }
+                    )
+                }
+            }
         }
     }
 }

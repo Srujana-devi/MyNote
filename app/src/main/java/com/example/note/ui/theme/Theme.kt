@@ -1,18 +1,22 @@
 package com.example.note.ui.theme
 
 
-
+import android.annotation.SuppressLint
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.Black
+import com.example.note.NotesApp
 
+
+@SuppressLint("ConflictingOnColor")
 private val DarkColorPalette = darkColors(
     primary = Color.White,
-    background = Color.White,
-    onPrimary = Color.Black
+    background = Color.Black,
+    onPrimary = Black
 )
 
 //#f6c2d9	(246,194,217)
@@ -25,14 +29,14 @@ val noteBGYellow = Color(0xFFfff69b)
 val noteBGBlue = Color(0xFFa1c8e9)
 
 
+@SuppressLint("ConflictingOnColor")
 private val LightColorPalette = lightColors(
     primary = Color.White,
     background = Color.White,
-    onPrimary = Color.Black,
+    onPrimary = Black,
 )
-
 @Composable
-fun PhotoNotesTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
+fun NotesAppTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
     val colors = if (darkTheme) {
         DarkColorPalette
     } else {

@@ -27,7 +27,7 @@ class NotesViewModel(
 
     fun createNote(title: String, note: String, image: String? = null) {
         viewModelScope.launch(Dispatchers.IO){
-            db.insertNote(Note(title = title, note = note, imageUri = image))
+           db.insertNote(Note(title = title, note = note, imageUri = image))
         }
     }
 

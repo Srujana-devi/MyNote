@@ -36,10 +36,10 @@ import com.example.note.Constants
 import com.example.note.Constants.orPlaceHolderList
 import com.example.note.R
 import com.example.note.model.Note
-import com.example.note.model.getDay
+//import com.example.note.model.getDay
 import com.example.note.ui.GenericAppBar
 import com.example.note.ui.NotesViewModel
-import com.example.note.ui.theme.PhotoNotesTheme
+import com.example.note.ui.theme.NotesAppTheme
 import com.example.note.ui.theme.noteBGBlue
 import com.example.note.ui.theme.noteBGYellow
 
@@ -53,7 +53,7 @@ fun NotesList(navController: NavController, viewModel: NotesViewModel) {
     val notesToDelete = remember { mutableStateOf(listOf<Note>()) }
     val notes = viewModel.notes.observeAsState()
     val context = LocalContext.current
-    PhotoNotesTheme {
+    NotesAppTheme {
         // A surface container using the 'background' color from the theme
         Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.primary) {
             Scaffold(
@@ -175,7 +175,7 @@ fun NotesList(
             notes.filter { it.note.contains(query.value) || it.title.contains(query.value) }
         }
         itemsIndexed(queriedNotes) { index, note ->
-            if (note.getDay() != previousHeader) {
+           /* if (note.getDay() != previousHeader) {
                 Column(
                     modifier = Modifier
                         .padding(6.dp)
@@ -191,7 +191,7 @@ fun NotesList(
                 previousHeader =  note.getDay()
             }
 
-
+*/
             NoteListItem(
                 note,
                 openDialog,

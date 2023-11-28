@@ -1,4 +1,4 @@
-package com.example.note.ui.NoteDetail
+package com.example.note.ui.notedetail
 
 import android.annotation.SuppressLint
 import android.net.Uri
@@ -24,7 +24,7 @@ import com.example.note.Constants.noteDetailPlaceHolder
 import com.example.note.R
 import com.example.note.ui.GenericAppBar
 import com.example.note.ui.NotesViewModel
-import com.example.note.ui.theme.PhotoNotesTheme
+import com.example.note.ui.theme.NotesAppTheme
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -44,7 +44,7 @@ fun NoteDetailScreen(noteId: Int, navController: NavController, viewModel: Notes
         }
     }
 
-    PhotoNotesTheme {
+    NotesAppTheme {
         // A surface container using the 'background' color from the theme
         Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
             Scaffold(
