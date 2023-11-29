@@ -9,24 +9,19 @@ import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.Black
-import com.example.note.NotesApp
+
 
 
 @SuppressLint("ConflictingOnColor")
 private val DarkColorPalette = darkColors(
     primary = Color.White,
-    background = Color.Black,
+    background = Black,
     onPrimary = Black
 )
 
-//#f6c2d9	(246,194,217)
-//#fff69b	(255,246,155)
-//#bcdfc9	(188,223,201)
-//#a1c8e9	(161,200,233)
-//#e4dae2	(228,218,226)
 
-val noteBGYellow = Color(0xFFfff69b)
-val noteBGBlue = Color(0xFFa1c8e9)
+val noteBGGreen = Color(0xFF9C976B)
+val noteBGBlue = Color(0xFF4D5E5C)
 
 
 @SuppressLint("ConflictingOnColor")

@@ -41,7 +41,7 @@ import com.example.note.ui.GenericAppBar
 import com.example.note.ui.NotesViewModel
 import com.example.note.ui.theme.NotesAppTheme
 import com.example.note.ui.theme.noteBGBlue
-import com.example.note.ui.theme.noteBGYellow
+import com.example.note.ui.theme.noteBGGreen
 
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
@@ -59,7 +59,7 @@ fun NotesList(navController: NavController, viewModel: NotesViewModel) {
             Scaffold(
                 topBar = {
                     GenericAppBar(
-                        title = stringResource(R.string.photo_notes),
+                        title = stringResource(R.string.notes_app),
                         onIconClick = {
                             if (notes.value?.isNotEmpty() == true) {
                                 openDialog.value = true
@@ -199,7 +199,7 @@ fun NotesList(
                 navController,
                 notesToDelete = notesToDelete,
                 noteBackGround = if (index % 2 == 0) {
-                    noteBGYellow
+                    noteBGGreen
                 } else noteBGBlue
             )
             Spacer(
