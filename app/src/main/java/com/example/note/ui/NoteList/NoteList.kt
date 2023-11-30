@@ -175,23 +175,23 @@ fun NotesList(
             notes.filter { it.note.contains(query.value) || it.title.contains(query.value) }
         }
         itemsIndexed(queriedNotes) { index, note ->
-           /* if (note.getDay() != previousHeader) {
-                Column(
-                    modifier = Modifier
-                        .padding(6.dp)
-                        .fillMaxWidth()
-                ) {
-                    Text(text = note.getDay(), color = Color.Black)
-                }
-                Spacer(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(6.dp)
-                )
-                previousHeader =  note.getDay()
-            }
+            /* if (note.getDay() != previousHeader) {
+                 Column(
+                     modifier = Modifier
+                         .padding(6.dp)
+                         .fillMaxWidth()
+                 ) {
+                     Text(text = note.getDay(), color = Color.Black)
+                 }
+                 Spacer(
+                     modifier = Modifier
+                         .fillMaxWidth()
+                         .height(6.dp)
+                 )
+                 previousHeader =  note.getDay()
+             }
 
-*/
+ */
             NoteListItem(
                 note,
                 openDialog,
