@@ -7,32 +7,32 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class NotesViewModel(
-    private val db: NotesDao,
+    private val database: NotesDao,
 ) : ViewModel() {
 
-    val notes: LiveData<List<Note>> = db.getNotes()
+    val notes: LiveData<List<Note>> = database.getNotes()
 
 
     fun deleteNotes(note: Note) {
         viewModelScope.launch(Dispatchers.IO){
-            db.deleteNote(note)
+            database.deleteNote(note)
         }
     }
 
     fun updateNote(note: Note) {
         viewModelScope.launch(Dispatchers.IO){
-            db.updateNote(note)
+            database.updateNote(note)
         }
     }
 
     fun createNote(title: String, note: String, image: String? = null) {
         viewModelScope.launch(Dispatchers.IO){
-           db.insertNote(Note(title = title, note = note, imageUri = image))
+           database.insertNote(Note(title = title, note = note, imageUri = image))
         }
     }
 
     suspend fun getNote(noteId : Int) : Note? {
-        return db.getNoteById(noteId)
+        return database.getNoteById(noteId)
     }
 
 }
@@ -42,7 +42,7 @@ class NotesViewModelFactory(
 ) : ViewModelProvider.NewInstanceFactory() {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return  NotesViewModel(
-            db = db,
+            database = db,
         ) as T
     }
 

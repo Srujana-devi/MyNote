@@ -24,15 +24,13 @@ import com.example.note.NotesApp
 import com.example.note.R
 import com.example.note.model.Note
 import com.example.note.ui.GenericAppBar
-import com.example.note.ui.NoteList.NotesFab
+import com.example.note.ui.NotesList.NotesFab
 import com.example.note.ui.NotesViewModel
 import com.example.note.ui.theme.NotesAppTheme
-import com.google.firebase.annotations.PreviewApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
-@PreviewApi
 @Composable
 fun NoteEditScreen(noteId: Int, navController: NavController, viewModel: NotesViewModel) {
     val scope = rememberCoroutineScope()
@@ -69,7 +67,7 @@ fun NoteEditScreen(noteId: Int, navController: NavController, viewModel: NotesVi
 
 
 
-    NotesAppTheme {
+    NotesAppTheme() {
         // A surface container using the 'background' color from the theme
         Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.primary) {
             Scaffold(

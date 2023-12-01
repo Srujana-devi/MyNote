@@ -44,7 +44,7 @@ fun NoteDetailScreen(noteId: Int, navController: NavController, viewModel: Notes
         }
     }
 
-    NotesAppTheme {
+    NotesAppTheme() {
         // A surface container using the 'background' color from the theme
         Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
             Scaffold(

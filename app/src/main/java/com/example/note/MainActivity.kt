@@ -10,7 +10,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.note.ui.editnote.NoteEditScreen
 import com.example.note.ui.notedetail.NoteDetailScreen
-import com.example.note.ui.NoteList.NotesList
+import com.example.note.ui.NotesList.NotesList
 import com.example.note.ui.NotesViewModel
 import com.example.note.ui.NotesViewModelFactory
 import com.example.note.ui.createnote.CreateNoteScreen

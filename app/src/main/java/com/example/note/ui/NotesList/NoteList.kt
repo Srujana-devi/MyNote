@@ -1,4 +1,4 @@
-package com.example.note.ui.NoteList
+package com.example.note.ui.NotesList
 
 import android.annotation.SuppressLint
 import android.net.Uri
@@ -128,7 +128,7 @@ fun SearchBar(query: MutableState<String>) {
             maxLines = 1,
             onValueChange = { query.value = it },
             modifier = Modifier
-                .background(Color.White)
+                .background(Color.Black)
                 .clip(RoundedCornerShape(12.dp))
                 .fillMaxWidth(),
             colors = TextFieldDefaults.textFieldColors(
@@ -182,12 +182,12 @@ fun NotesList(
                          .fillMaxWidth()
                  ) {
                      Text(text = note.getDay(), color = Color.Black)
-                 }
+                 }*/
                  Spacer(
                      modifier = Modifier
                          .fillMaxWidth()
                          .height(6.dp)
-                 )
+                 )/*
                  previousHeader =  note.getDay()
              }
 
