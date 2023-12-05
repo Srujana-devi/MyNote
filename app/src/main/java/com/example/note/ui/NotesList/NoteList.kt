@@ -132,7 +132,7 @@ fun SearchBar(query: MutableState<String>) {
                 .clip(RoundedCornerShape(12.dp))
                 .fillMaxWidth(),
             colors = TextFieldDefaults.textFieldColors(
-                textColor = Color.Black,
+                textColor = Color.White,
             ),
             trailingIcon = {
                 AnimatedVisibility(
